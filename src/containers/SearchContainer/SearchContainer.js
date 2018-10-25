@@ -27,15 +27,16 @@ class SearchContainer extends React.Component {
    */
   stubData() {
     let repo = {
-      full_name: 'My Repository',
-      owner: {
-        login: 'Angel',
-        avatar_url: 'https://avatars.githubusercontent.com/u/4056725?v=3',
-        html_url: 'https://github.com/Angelmmiguel'
-      },
-      stargazers_count: 10,
-      forks_count: 5
+        full_name: 'My Repository',
+        owner: {
+          login: 'Angel',
+          avatar_url: 'https://avatars.githubusercontent.com/u/4056725?v=3',
+          html_url: 'https://github.com/Angelmmiguel'
+        },
+        stargazers_count: 10,
+        forks_count: 5
     }
+
     return [
       Object.assign({}, repo),
       Object.assign({}, repo),
@@ -62,12 +63,11 @@ class SearchContainer extends React.Component {
    * Render the SearchContainer component
    */
   render() {
-    return <main className="container">
-      <Header />
+    return <section className="container">
       <h1>Búsqueda</h1>
       <SearchForm onSubmit={ this.onSubmit } search={ this.search }/>
       <RepositoryList data={this.state.results} loading={this.state.loading} queried={this.state.queried} search={this.state.search}/>
-    </main>
+    </section>
   }
 }
 

@@ -61,11 +61,11 @@ export default  ( PaginatedComponent )  => {
                     let cssClass = "Paginator_Page";
                     cssClass = i === this.state.page ? `${ cssClass } active` : cssClass;
     
-                    pages.push(
-                        <a href="#" className={ cssClass} key={i} onClick={e => this.onClick(e, i)}>
-                            { i + 1 }
-                        </a>
-                    )
+                    // pages.push(
+                    //     <a href="#" className={ cssClass} key={i} onClick={e => this.onClick(e, i)}>
+                    //         { i + 1 }
+                    //     </a>
+                    // )
                 }
             }
             //englibamos todos los elementos en uno 

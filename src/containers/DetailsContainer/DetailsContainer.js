@@ -1,6 +1,7 @@
 import React      from 'react';
 import Header from '../../components/Header';
 import ReleaseList from '../../components/ReleaseList/ReleaseList';
+import PropTypes from 'prop-types';
 // Componentes
 
 /**
@@ -16,7 +17,21 @@ class DetailsContainer extends React.Component {
         repoName: null
     }
   }
+  static propTypes = {
+    // params:
+    match: PropTypes.shape({
+      params:  PropTypes.shape({
+        user: PropTypes.string.isRequired,
+        repo: PropTypes.string.isRequired
+      })
+    
+    }) 
+  }
 
+  get repoName() {
+    const {user, repo} = this.props.match.params;
+    return `${user}/${repo}`;
+  }
   stubData() {
     let repo = {
       name: 'v1.0',
@@ -44,12 +59,17 @@ class DetailsContainer extends React.Component {
     ]
   }
 
+  componentDidMount() {
+    this.setState({
+      releases: this.stubData()
+    })
+  }
   /**
    * UI del contenedor
    */
   render() {
+    console.log(this.props);
     return <main className="container">
-            <Header />
             <h2>Releases for <b>{this.repoName }</b></h2>
             <ReleaseList data={this.state.releases} loading={this.state.loading} repoName={this.repoName}/>
           </main>;

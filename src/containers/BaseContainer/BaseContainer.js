@@ -14,28 +14,25 @@ class BaseContainer extends React.Component {
   /**
    * Props del component
    */
-  static propTypes = {
-    // Es necesario, si no, los links no se actualizarán
-        location: PropTypes.object.isRequired
-  };
+//   static propTypes = {
+//     // Es necesario, si no, los links no se actualizarán
+//         location: PropTypes.object.isRequired
+//   };
 
   /**
    * Render the HomeContainer component
    */
   render() {
-      console.log('hola');
+      console.log(this.props.children);
       
     return <main className="container">
                 <Header />
                 <nav className="Navigation">
-                    {/* <Switch> */}
-                        <NavLink exact to="/" className="Link" activeClassName="Link--active">Home</NavLink>
-                        <NavLink to="/about" className="Link" activeClassName="Link--active">About</NavLink>
-                    {/* </Switch> */}
-                    {/* <a className="Link" activeClassName="Link--active">Home</a> */}
+                        <NavLink exact to="/"     className="Link" activeClassName="Link--active">Home</NavLink>
+                        <NavLink to="/about"    className="Link" activeClassName="Link--active">About</NavLink>
                 </nav>
-                
-                { this.props.children || <SearchContainer /> }
+
+                {/* {this.props.children || <SearchContainer />}  */}
             </main>;
   }
 }

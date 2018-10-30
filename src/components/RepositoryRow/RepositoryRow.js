@@ -2,6 +2,7 @@ import React      from 'react';
 import PropTypes  from 'prop-types';
 // Componentes
 import ExternalLink   from '../ExternalLink';
+import {Link} from 'react-router-dom'
 import { GoStar, GoRepoForked } from 'react-icons/go'
 import GithubAvatar from '../GithubAvatar';
 
@@ -28,7 +29,7 @@ class RepositoryRow extends React.PureComponent {
       <td><GoStar /> { repo.stargazers_count }</td>
       <td><GoRepoForked /> { repo.forks_count }</td>
       <td className="align-right">
-        <ExternalLink className="button button-primary" to={ `/${repo.full_name}`}>Releases</ExternalLink>
+        <Link className="button button-primary" to={ `/${repo.owner.login}/${repo.full_name}`}>Releases</Link>
       </td>
     </tr>
   }

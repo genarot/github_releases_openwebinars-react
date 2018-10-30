@@ -22,7 +22,7 @@ class About extends React.Component {
    * Render the BaseComponent component
    */
   render() {
-    return <section className="About">
+    return <section className="container About">
       <p>Esta aplicación es parte del curso de React impartido en
         { ' ' }<ExternalLink to={ this.openWebinarsLink }>OpenWebinars</ExternalLink>
       </p>

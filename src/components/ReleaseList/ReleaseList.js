@@ -18,6 +18,7 @@ class ReleaseList extends React.PureComponent {
   }
 
   renderMessage() {
+    
     let text = '';
 
     if ( this.props.loading ) {
@@ -46,9 +47,12 @@ class ReleaseList extends React.PureComponent {
           </tr>
         </thead>
         <tbody>
-          { this.props.data.map(release =>
-            <ReleaseRow release={ release } key={ release.id } />
-          )}
+          { this.props.data.map( (release, index) => {
+            console.log(index);
+            
+            return <ReleaseRow release={ release } key={ index } />
+            })
+          }
         </tbody>
       </table>;
     }

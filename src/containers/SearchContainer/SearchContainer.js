@@ -64,10 +64,10 @@ class SearchContainer extends React.Component {
    */
   render() {
     return <section className="container">
-      <h1>Búsqueda</h1>
-      <SearchForm onSubmit={ this.onSubmit } search={ this.search }/>
-      <RepositoryList data={this.state.results} loading={this.state.loading} queried={this.state.queried} search={this.state.search}/>
-    </section>
+              <h1>Búsqueda</h1>
+              <SearchForm onSubmit={ this.onSubmit } search={ this.search }/>
+              <RepositoryList data={this.state.results} loading={this.state.loading} queried={this.state.queried} search={this.state.search}/>
+            </section>
   }
 }
 

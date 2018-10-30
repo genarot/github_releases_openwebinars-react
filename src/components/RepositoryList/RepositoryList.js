@@ -57,7 +57,7 @@ class RepositoryList extends React.PureComponent {
                     </tr>
                 </thead>
                 <tbody>
-                    { this.props.data.map( (repo) => <RepositoryRow repo={repo} key={repo.id}/> )}
+                    { this.props.data.map( (repo, index) => <RepositoryRow repo={repo} key={index}/> )}
                 </tbody>
               </table>
     }

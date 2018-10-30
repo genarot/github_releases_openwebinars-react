@@ -3,23 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App                  from './containers/App';
 import * as serviceWorker from './serviceWorker';
-// import Header from './components/Header'
 import BaseContainer    from './containers/BaseContainer'
 import ErrorComponent from './components/Error';
 import About from './components/About';
 // import SearchContainer   from  './containers/SearchContainer'
 // import DetailsContainer from './containers/DetailsContainer';
 import {HashRouter as Router, Route, Switch} from  'react-router-dom';
+import Header from './components/Header';
+import DetailsContainer from './containers/DetailsContainer/DetailsContainer';
+import SearchContainer from './containers/SearchContainer';
 
 ReactDOM.render(
                 <Router>
-                    <BaseContainer>
-                        <Switch>
-                            <Route path="/" children={BaseContainer}/>
-                            <Route path="/about" children={About}/>
-                            <Route component={ErrorComponent}/>
-                        </Switch>
-                    </BaseContainer>
+                    <React.Fragment>
+                            <BaseContainer />
+                            <Switch>
+                                <Route exact path="/"  component={SearchContainer}/>
+                                <Route exact path="/about" render={ () => < About />}/>
+                                <Route exact path="/:user/:repo" component={DetailsContainer}/>
+                                <Route component={ErrorComponent}/>
+                            </Switch>
+                    </React.Fragment>
+                    {/* </BaseContainer> */}
                 </Router>
                 , document.getElementById('root')
                 );
